@@ -3,77 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neon Terminal Resume</title>
+  <title>Scroll Resume</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: #0d0d0d;
-      font-family: 'Courier New', monospace;
-      color: #39ff14;
+      height: 100%;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+    }
+    section {
       height: 100vh;
-      overflow: hidden;
       display: flex;
-      align-items: center;
       justify-content: center;
-    }
-
-    .terminal {
-      width: 90%;
-      max-width: 900px;
-      background: #111;
-      border: 2px solid #39ff14;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
       padding: 2rem;
-      box-shadow: 0 0 20px #39ff14;
-      animation: fadeIn 1s ease-out;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .line {
-      margin: 0.5rem 0;
-      white-space: pre-wrap;
+    /* Different backgrounds for each section */
+    #home    { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+    #edu     { background: linear-gradient(135deg, #3a1c71, #d76d77); }
+    #exp     { background: linear-gradient(135deg, #42275a, #734b6d); }
+    #skills  { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+    #contact { background: linear-gradient(135deg, #141e30, #243b55); }
+
+    nav {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
     }
 
-    .blink {
-      animation: blink 1s step-start infinite;
+    nav a {
+      color: white;
+      text-decoration: none;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 12px;
+      margin-left: 5px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      transition: background 0.3s;
     }
 
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .highlight {
-      color: #0ff;
-    }
-
-    .command::before {
-      content: "➜ ";
-      color: #39ff14;
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
     }
   </style>
 </head>
 <body>
-  <div class="terminal">
-    <div class="line command">whoami</div>
-    <div class="line">👤 <span class="highlight">John Doe</span></div>
 
-    <div class="line command">cat skills.txt</div>
-    <div class="line">💻 HTML, CSS, JavaScript, React, Node.js</div>
-    <div class="line">🛠️ Git, Linux, REST APIs</div>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#edu">Education</a>
+  <a href="#exp">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <div class="line command">cat experience.txt</div>
-    <div class="line">🧠 3+ years as Full Stack Developer</div>
-    <div class="line">🏢 Worked at TechNova Inc, Freelance Projects</div>
-
-    <div class="line command">cat contact.txt</div>
-    <div class="line">📧 john.doe@example.com</div>
-    <div class="line">🌐 https://johndoe.dev</div>
-
-    <div class="line"><span class="blink">█</span></div>
+<section id="home">
+  <div>
+    <h1>👋 Hi, I'm John Doe</h1>
+    <p>Full Stack Developer passionate about building modern web experiences.</p>
   </div>
+</section>
+
+<section id="edu">
+  <div>
+    <h1>🎓 Education</h1>
+    <p>B.Sc. in Computer Science<br>XYZ University, 2017–2021</p>
+  </div>
+</section>
+
+<section id="exp">
+  <div>
+    <h1>💼 Experience</h1>
+    <p>Software Developer at TechNova (2021–Present)<br>Freelance Web Projects (2019–2021)</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div>
+    <h1>🛠 Skills</h1>
+    <p>HTML, CSS, JavaScript, React, Node.js, Git, Linux, MongoDB</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div>
+    <h1>📞 Contact</h1>
+    <p>Email: john.doe@example.com<br>Website: johndoe.dev</p>
+  </div>
+</section>
+
 </body>
 </html>
