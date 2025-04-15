@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Resume</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+    section {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(to bottom right, #1f1c2c, #928dab);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .scroll-btn {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+<section id="home">
+  <h1>Your Name</h1>
+  <h2>Full Stack Developer</h2>
+  <p>Hello! I'm a passionate developer with expertise in building modern web applications using JavaScript, HTML, CSS, and backend tech.</p>
+  <p>🚀 Skills: JavaScript | React | Node.js | HTML | CSS | Git</p>
+  <p>📧 Email: you@example.com</p>
+  <div class="scroll-btn" onclick="scrollToNext()">⬇️</div>
+</section>
+
+<script>
+  function scrollToNext() {
+    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
