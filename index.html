@@ -3,73 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Resume</title>
+  <title>Neon Terminal Resume</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      overflow: hidden;
-    }
-    section {
+      background: #0d0d0d;
+      font-family: 'Courier New', monospace;
+      color: #39ff14;
       height: 100vh;
-      width: 100%;
+      overflow: hidden;
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-direction: column;
-      background: linear-gradient(to bottom right, #1f1c2c, #928dab);
-      color: white;
-      padding: 20px;
-      text-align: center;
+      justify-content: center;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+
+    .terminal {
+      width: 90%;
+      max-width: 900px;
+      background: #111;
+      border: 2px solid #39ff14;
+      padding: 2rem;
+      box-shadow: 0 0 20px #39ff14;
+      animation: fadeIn 1s ease-out;
     }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+
+    .line {
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
     }
-    p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin: 10px auto;
+
+    .blink {
+      animation: blink 1s step-start infinite;
     }
-    .scroll-btn {
-      position: absolute;
-      bottom: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      animation: bounce 2s infinite;
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      color: #0ff;
+    }
+
+    .command::before {
+      content: "➜ ";
+      color: #39ff14;
     }
   </style>
 </head>
 <body>
+  <div class="terminal">
+    <div class="line command">whoami</div>
+    <div class="line">👤 <span class="highlight">John Doe</span></div>
 
-<section id="home">
-  <h1>Your Name</h1>
-  <h2>Full Stack Developer</h2>
-  <p>Hello! I'm a passionate developer with expertise in building modern web applications using JavaScript, HTML, CSS, and backend tech.</p>
-  <p>🚀 Skills: JavaScript | React | Node.js | HTML | CSS | Git</p>
-  <p>📧 Email: you@example.com</p>
-  <div class="scroll-btn" onclick="scrollToNext()">⬇️</div>
-</section>
+    <div class="line command">cat skills.txt</div>
+    <div class="line">💻 HTML, CSS, JavaScript, React, Node.js</div>
+    <div class="line">🛠️ Git, Linux, REST APIs</div>
 
-<script>
-  function scrollToNext() {
-    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-  }
-</script>
+    <div class="line command">cat experience.txt</div>
+    <div class="line">🧠 3+ years as Full Stack Developer</div>
+    <div class="line">🏢 Worked at TechNova Inc, Freelance Projects</div>
 
+    <div class="line command">cat contact.txt</div>
+    <div class="line">📧 john.doe@example.com</div>
+    <div class="line">🌐 https://johndoe.dev</div>
+
+    <div class="line"><span class="blink">█</span></div>
+  </div>
 </body>
 </html>
